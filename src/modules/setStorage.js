@@ -1,6 +1,6 @@
 // Update booksArray with data from localStorage
-const setLocalStorage = (taskArray) => {
+const setStorage = (taskArray) => {
   localStorage.setItem('taskList', JSON.stringify(taskArray));
 };
 
-export default setLocalStorage;
+export default setStorage;

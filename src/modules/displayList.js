@@ -1,7 +1,7 @@
 import removeTask from './removeTask.js';
 import editTask from './editTask.js';
-import getLocalStorage from './getStorage.js';
-import setLocalStorage from './setStorage.js';
+import getStorage from './getStorage.js';
+import setStorage from './setStorage.js';
 
 const listHolder = document.getElementById('list-holder');
 
@@ -43,20 +43,20 @@ const displayList = (taskArray) => {
         const id = parseInt(e.target.id.split('-')[1], 10);
         if (e.target.classList.contains('trash')) {
           removeTask(id);
-          displayList(getLocalStorage());
+          displayList(getStorage());
         } else if (e.target.classList.contains('pencil')) {
           editTask(id);
         } else if (eventType === 'change') {
-          const taskArray = getLocalStorage();
+          const taskArray = getStorage();
           const checkedLabel = document.getElementById(`label-${id}`);
           if (e.target.checked) {
             checkedLabel.classList.add('line-through');
             taskArray[id].completed = true;
-            setLocalStorage(taskArray);
+            setStorage(taskArray);
           } else {
             checkedLabel.classList.remove('line-through');
             taskArray[id].completed = false;
-            setLocalStorage(taskArray);
+            setStorage(taskArray);
           }
         }
       });

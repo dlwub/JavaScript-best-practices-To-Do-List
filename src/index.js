@@ -1,7 +1,7 @@
 import './style.css';
 import displayList from './modules/displayList.js';
 import addTask from './modules/addTask.js';
-import getLocalStorage from './modules/getStorage.js';
+import getStorage from './modules/getStorage.js';
 import removeTask from './modules/removeTask.js';
 
 const listInput = document.getElementById('list-input');
@@ -12,16 +12,16 @@ listInput.addEventListener('keyup', (e) => {
   if (e.key === 'Enter') {
     addTask(e.target.value);
     listInput.value = '';
-    displayList(getLocalStorage());
+    displayList(getStorage());
   }
 });
 
 clearBtn.addEventListener('click', (e) => {
   e.preventDefault();
   removeTask(-1);
-  displayList(getLocalStorage());
+  displayList(getStorage());
 });
 
 window.addEventListener('load', () => {
-  displayList(getLocalStorage());
+  displayList(getStorage());
 });
