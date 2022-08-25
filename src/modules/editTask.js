@@ -8,7 +8,7 @@ const editTask = (id) => {
     e.preventDefault();
     if (e.key === 'Enter') {
       const taskArray = getStorage();
-      taskArray[id-1].description = editable.textContent;
+      taskArray[id - 1].description = editable.textContent;
       setStorage(taskArray);
     }
   });
